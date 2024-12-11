@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Santa Cruz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado con logo, menú horizontal y cinta de noticias -->
+    <header class="header">
+        <div class="logo">Portal Santa Cruz</div>
+        <div class="info-bar">
+            <span>Fecha | Hora | Titulares destacados</span>
+        </div>
+     </header>
+     <!-- Menú hamburguesa -->
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Actualidad</a></li>
+                <li><a href="#">Otra Sección</a></li>
+                <li><a href="#">Turismo</a></li>
+                <li><a href="#">Nuestra Tierra</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Comunidad</a></li>
+                <li><a href="#">Sitios Oficiales</a></li>
+            </ul>
+        </nav>
+   
+    <div class="news-ticker">
+        <span class="news-title">Últimas noticias:</span>
+        <marquee id="news-marquee" scrollamount="5">¡El Glaciar Perito Moreno ofrece una vista espectacular este verano! | Actividades culturales en Calafate este fin de semana. | Santa Cruz recibe visitantes de todo el mundo.</marquee>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Menú Izquierdo -->
+        <aside class="menu-left">
+            <ul class="main-menu">
+                <li><a href="#">Actualidad</a>
+                    <ul class="submenu">
+                        <li><a href="#">Tecnología</a></li>
+                        <li><a href="#">Economía y Empresas</a></li>
+                        <li><a href="#">Temas</a></li>
+                        <li><a href="#">Noticias</a></li>
+                        <li><a href="#">Eventos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Otra sección</a>
+                    <ul class="submenu">
+                        <li><a href="#">Agenda</a></li>
+                        <li><a href="#">Arte y Cultura</a></li>
+                        <li><a href="#">Educación</a></li>
+                        <li><a href="#">Organizaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Turismo</a>
+                    <ul class="submenu">
+                        <li><a href="#">Lugares</a></li>
+                        <li><a href="#">Apuntes de Viaje</a></li>
+                        <li><a href="#">Rodanteros</a></li>
+                        <li><a href="#">Etc</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Nuestra Tierra</a>
+                    <ul class="submenu">
+                        <li><a href="#">Galería de Fotos</a></li>
+                        <li><a href="#">Naturaleza y Vida</a></li>
+                        <li><a href="#">Raíces</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Servicios</a>
+                    <ul class="submenu">
+                        <li><a href="#">Clasificados</a></li>
+                        <li><a href="#">Transportes</a></li>
+                        <li><a href="#">Info Prefectura</a></li>
+                        <li><a href="#">Defensa Civil</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Comunidad</a>
+                    <ul class="submenu">
+                        <li><a href="#">Sitios de Interés</a></li>
+                        <li><a href="#">Dónde Comer</a></li>
+                        <li><a href="#">Dónde Dormir</a></li>
+                        <li><a href="#">Otros</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sitios Oficiales</a>
+                    <ul class="submenu">
+                        <li><a href="#">Santa Cruz</a></li>
+                        <li><a href="#">Chubut</a></li>
+                        <li><a href="#">Tierra del Fuego</a></li>
+                        <li><a href="#">Río Negro</a></li>
+                        <li><a href="#">La Pampa</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <div class="carousel">
+            <div class="carousel-slide active" style="background-image: url('fondoglaciar.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('glaciarcasizq.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('glaciarladoider.jpg');"></div>
+            <!-- Botones para navegación -->
+            <button class="carousel-prev">&#10094;</button>
+            <button class="carousel-next">&#10095;</button>
+        </div>
+        
+        <!-- Noticias Destacadas -->
+        <section class="highlights">
+            <h2>Noticias Destacadas</h2>
+            <article>
+                <h3>Título de la Noticia 1</h3>
+                <p>Descripción breve de la noticia principal. Lorem ipsum dolor sit amet...</p>
+            </article>
+            <article>
+                <h3>Título de la Noticia 2</h3>
+                <p>Descripción breve de la noticia secundaria. Lorem ipsum dolor sit amet...</p>
+            </article>
+        </section>
+        
+        <!-- Menú Derecho -->
+        <aside class="menu-right">
+            <div class="banner">Publicidad 1</div>
+            <div class="banner">Publicidad 2</div>
+            <div class="poll">Encuesta</div>
+            <div class="user-content">Envíos de fotos/videos</div>
+        </aside>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <p>Redes Sociales | Copyright © 2024 | Términos de Uso</p>
+    </footer>
+
+    <script>
+        // Pausar y reanudar el marquee
+        const marquee = document.getElementById('news-marquee');
+        marquee.addEventListener('mouseover', () => marquee.stop());
+        marquee.addEventListener('mouseout', () => marquee.start());
+
+        // Desplegar o colapsar submenús
+        document.querySelectorAll('.main-menu > li > a').forEach(menuItem => {
+            menuItem.addEventListener('click', function (e) {
+                e.preventDefault();
+                const submenu = this.nextElementSibling;
+                if (submenu) submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+    </script>
+    <script>
+        function toggleMenu() {
+        const navBar = document.querySelector('.nav-bar');
+        navBar.classList.toggle('active');
+    }
+    </script>
+<script>
+    const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+let currentIndex = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+    showSlide(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+    showSlide(currentIndex);
+});
+
+// Mostrar la primera diapositiva al cargar
+showSlide(currentIndex);
+
+</script>
+    
+    
+</body>
+</html>
